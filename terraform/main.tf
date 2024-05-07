@@ -8,7 +8,7 @@ terraform {
   }
   backend "s3" {
     bucket         = "gsk-terraform-statefile"
-    key            = "terraformstate/terraform.tfstate"
+    key            = "terraformstate/"
     region         = "us-east-1"
     dynamodb_table = "gsk-terraform-lock"
     encrypt        = true
