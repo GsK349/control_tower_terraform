@@ -13,5 +13,4 @@ terraform {
     dynamodb_table = "gsk-terraform-lock"
     encrypt        = true
   }
-
 }
