@@ -1,7 +1,7 @@
-name: Terraform check
+name: Terraform deployment
 on:
   workflow_dispatch:
-  pull_request:
+  push:
     branches:
       - main
     paths:
@@ -31,10 +31,9 @@ jobs:
         id: init
         run: terraform init -backend-config="bucket=gsk-terraform-statefile"
 
-      - name: Validation
-        id: validate
-        run: terraform validate
-
       - name: Terraform Plan
         id: plan
         run: terraform plan
+
+      - name: Terraform apply
+        run: terraform apply -auto-approve
